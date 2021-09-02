@@ -1,0 +1,82 @@
+#%RAML 1.0
+title: product-service.api
+version: 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/4c73cf9d-ee7c-45e3-9052-693b453b2a18
+
+traits:
+  errorResponse: !include traits/errorTrait.raml
+
+types:
+  Product: !include productDataType/product.raml
+
+/products:
+  get:
+    is: [errorResponse]
+    description: This api is to retrive product details
+    responses:
+      200:
+        body:
+          application/json:
+            type: Product[]
+            examples: !include productExamples/product_array_example.raml
+  
+  post:
+    is: [errorResponse]
+    description: This api is to insert product
+    body:
+      application/json:
+        type: Product
+        examples: !include productExamples/product_example.raml
+           
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              message:product added successfully
+  
+  delete:
+      is: [errorResponse]
+      queryParameters:
+        productId:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message: Product is deleted successfully
+  
+  /{productId}:
+    get:
+      is: [errorResponse]
+      description: This api is to get product by id
+      responses:
+        200:
+          body:
+            application/json:
+              type: Product
+              examples: !include productExamples/product_example.raml
+    
+    put:
+      is: [errorResponse]
+      description: This api is to update product details
+      body:
+        application/json:
+          type: Product
+          examples: !include productExamples/product_example.raml
+          
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message:Product is updated succesfully
+
+          
+          
+          
+
+                
+

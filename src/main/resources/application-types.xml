@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="productid" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: number]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#d6ff7f80-a1c9-4274-a90b-9ec156671cf4">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="productId" type="productid"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#3c4e9d9c-15a4-4170-a006-002bdf5a381d">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="productId" type="productid"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
