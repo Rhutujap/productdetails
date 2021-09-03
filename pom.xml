@@ -49,7 +49,7 @@
 						<muleVersion>4.3.0</muleVersion>
 						<username>Rhutujap</username>
 						<password>Rhutu12@</password>
-						<applicationName>product_gitimpl</applicationName>
+						<applicationName>productgitimpl</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>
 						<objectStoreV2>true</objectStoreV2>
